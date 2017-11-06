@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import './Selector.css';
 
