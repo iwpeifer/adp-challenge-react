@@ -19,10 +19,11 @@ class App extends Component {
   }
 
   select = (character) => {
-    // Fetches film data from API, sorts them by episode #
+    // Defines a function that fetches film data from API, sorts them by episode #
     let fetchFilmData = (films) => {
       let fetchedFilms = [];
       let fetchedFilmsCounter = 0;
+      // if there are films, complete Ajax requests for each one
       if (films) {
         films.forEach(film => {
           fetch(film)
@@ -31,6 +32,7 @@ class App extends Component {
             .then(() => {
               fetchedFilmsCounter++
               // State is not changed until all film data has been fetched, sets isLoading to false
+              // Also sorts films by episode_id
               if (fetchedFilmsCounter === films.length) {
                 this.setState({
                   films: fetchedFilms.sort((a, b) => {
@@ -41,6 +43,7 @@ class App extends Component {
               }
             })
         })
+        // If there are no films, return an error
       } else {
         alert("An error has occured; no films have been found.")
         this.setState({
@@ -57,7 +60,7 @@ class App extends Component {
       info: false,
     })
 
-    // Uses character URL to fetch film URLs
+    // Uses character URL and fetchFilmData() to fetch film URLs
     return fetch(character.url)
       .then(response => response.json())
       .then(json => fetchFilmData(json.films))
