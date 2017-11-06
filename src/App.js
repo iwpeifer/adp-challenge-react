@@ -15,21 +15,40 @@ class App extends Component {
     }
   }
 
-  select = (character) => {
+  // componentDidUpdate(state, props){
+  //   alert('yahoo lol')
+  // }
 
+  select = (character) => {
+    //Fetches film data from API
     let fetchFilmData = (films) => {
+      let fetchedFilms = [];
+      let fetchedFilmsCounter = 0;
       films.forEach(film => {
         fetch(film)
           .then(response => response.json())
-          .then(json => this.setState({
-            films: [...this.state.films, json]
-          }))
+          .then(json => fetchedFilms.push(json))
+          .then(() => {
+            console.log(fetchedFilms)
+            fetchedFilmsCounter++
+            if (fetchedFilmsCounter === films.length - 1) {
+              this.setState({
+                films: fetchedFilms
+              })
+            }
+          })
       })
     }
 
+    //Resets this.state.films to an empty array
+    this.setState({
+      films: []
+    })
+    //Uses character URL to fetch film URLs
     return fetch(character.url)
       .then(response => response.json())
       .then(json => fetchFilmData(json.films))
+      .then(() => alert('lol'))
   }
 
   render() {
