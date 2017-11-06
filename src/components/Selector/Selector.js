@@ -2,44 +2,23 @@ import React, { Component } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import './Selector.css';
 
-export default class Character extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      index: 0,
-      data: '',
-    }
-  }
+export default (props) => {
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData = () => {
-    return fetch(this.props.characters[this.state.index].url)
-    .then(response => response.json())
-    .then(json => this.setState({
-      data: json
-    }))
-  }
-
-  renderCharacterButtons = () => {
+  let renderCharacterButtons = () => {
     return (
       <ButtonToolbar className='toolbar'>
-        {this.props.characters.map((character, i) => {
-          return <Button bsStyle='primary' key={i} onClick={() => this.props.select(character)}>{character.name}</Button>
+        {props.characters.map((character, i) => {
+          return <Button bsStyle='primary' key={i} onClick={() => props.select(character)}>{character.name}</Button>
         })}
-        <Button bsStyle='info' onClick={() => this.props.toggleInfo()}>Info</Button>
+        <Button bsStyle='info' onClick={() => props.toggleInfo()}>Info</Button>
       </ButtonToolbar>
     )
   }
 
-  render(){
-    return (
-      <div className='Selector'>
-        <h3>Select a Character:</h3>
-        {this.renderCharacterButtons()}
-      </div>
-    )
-  }
+  return (
+    <div className='Selector'>
+      <h3>Select a Character:</h3>
+      {renderCharacterButtons()}
+    </div>
+  )
 }
