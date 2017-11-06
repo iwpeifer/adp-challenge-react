@@ -1,29 +1,30 @@
 .App {
   text-align: center;
-  color: yellow;
-  background: rgba(255,255,255,0.2);
+  color: rgb(254,226,51);
+  background: rgba(255,255,255,0.1);
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   width: 50%;
+  min-width: 500px;
   position: absolute;
   left: 25%;
 }
 
-.Character-container {
-  background: rgba(255,255,255,0.2);
+h1, h3 {
+  font-style: italic;
+}
+
+.Film-container {
+  background: rgba(255,255,255,0.1);
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
+  min-height: 25vh;
 }
 
-/*button {
-  width: 100%;
+.info {
+  color: white;
   text-align: left;
-}*/
-
-/*button:focus {
-    outline: none !important;
-    border: 2px solid yellow;
-    box-shadow: 0 0 10px yellow;
-}*/
+  font-style: italic;
+}

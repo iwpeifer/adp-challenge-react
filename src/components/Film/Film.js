@@ -1,47 +1,44 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import './Film.css';
 
 export default class Film extends Component {
   constructor() {
     super();
     this.state = {
-      data: '',
+      isToggled: false,
     }
   }
 
-  componentDidMount = () => {
-    return fetch(this.props.url)
-    .then(response => response.json())
-    .then(json => this.setState({
-      data: json
-    }))
+  formatDate = date => {
+    return date.toLocaleString("en-us", { month: "long", weekday: "long", year: "numeric", day: "numeric"});
   }
 
-  // fetchFilms = () => {
-  //   return fetch(this.props.character.url)
-  //   .then(response => response.json())
-  //   .then(json => this.setState({
-  //     films: json.films
-  //   }))
-  // }
-  //
-  // renderFilms = () => {
-  //   return (
-  //     <div>
-  //       {this.state.films.map((film, i) => <Film url={film} key={i}/>)}
-  //     </div>
-  //   )
-  // }
-  //
   toggle = () => {
-    this.setState({isSelected: !this.state.isSelected});
-    this.fetchFilms();
+    this.setState({
+      isToggled: !this.state.isToggled
+    })
   }
 
-  render(){
+  renderInfo = date => {
+    return (
+      <div className='Film-info'>
+        <p>Released: {this.formatDate(date)}</p>
+        <p>Director: {this.props.film.director}</p>
+        <div className='opening-crawl'>
+          {this.props.film.opening_crawl}
+        </div>
+      </div>
+    )
+  }
+
+
+  render() {
+    let date = new Date(this.props.film.release_date)
     return (
       <div className='Film'>
-        <button onClick={this.toggle}>{this.state.data.title}</button>
+        <Button className="film-button" bsSize="xsmall" onClick={() => this.toggle()}>Episode {this.props.film.episode_id}: {this.props.film.title}</Button>
+        {this.state.isToggled ? this.renderInfo(date) : null}
       </div>
     )
   }

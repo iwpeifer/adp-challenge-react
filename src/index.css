@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  background-color: rgb(29,30,34);
+  background-repeat: repeat;
   margin: 0;
   padding: 0;
   font-family: sans-serif;

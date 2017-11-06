@@ -27,10 +27,11 @@ export default class Character extends Component {
 
   renderCharacterButtons = () => {
     return (
-      <ButtonToolbar>
+      <ButtonToolbar className='toolbar'>
         {this.props.characters.map((character, i) => {
-          return <Button key={i} onClick={() => this.props.select(character)}>{character.name}</Button>
+          return <Button bsStyle='primary' key={i} onClick={() => this.props.select(character)}>{character.name}</Button>
         })}
+        <Button bsStyle='info' onClick={() => this.props.toggleInfo()}>Info</Button>
       </ButtonToolbar>
     )
   }
@@ -38,7 +39,7 @@ export default class Character extends Component {
   render(){
     return (
       <div className='Selector'>
-        Select a Character
+        <h3>Select a Character:</h3>
         {this.renderCharacterButtons()}
       </div>
     )

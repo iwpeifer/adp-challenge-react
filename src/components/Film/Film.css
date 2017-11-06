@@ -1,13 +1,32 @@
 .Film {
-  background: rgba(255,255,255,0.2);
+  text-align: left;
+  font-weight: bold;
+  background: rgba(255,255,255,0.1);
   border-radius: 5px;
-  padding: 5px;
   margin: 5px;
+  padding: 5px;
 }
 
-/*.Film-container {
+.Film-info {
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
   margin: 5px;
   padding: 5px;
-  background: rgba(255,255,255,0.2);
+}
+
+.opening-crawl {
+  text-align: left;
+  font-size: .75em;
+  font-style: normal;
+  background: rgba(255,255,255,0.1);
   border-radius: 5px;
-}*/
+  margin: 5px;
+  padding: 5px;
+}
+
+ button.film-button {
+   width: 100%;
+ }

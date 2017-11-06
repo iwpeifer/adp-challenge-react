@@ -1,13 +1,12 @@
 .Film {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
 }
 
-/*.Film-container {
-  margin: 5px;
-  padding: 5px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 5px;
-}*/
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
