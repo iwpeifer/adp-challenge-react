@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import './Selector.css';
 
-import Film from '../Film/Film'
-
 export default class Character extends Component {
   constructor(props) {
     super(props);
