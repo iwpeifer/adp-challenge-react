@@ -1,6 +1,9 @@
 {
   "name": "adp-challenge-react",
   "version": "0.1.0",
+  "engines": {
+    "node": "8.2.1"
+  },
   "private": true,
   "dependencies": {
     "react": "^16.0.0",
