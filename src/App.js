@@ -5,6 +5,7 @@ import './App.css';
 import Selector from './components/Selector/Selector';
 import Film from './components/Film/Film';
 import Info from './components/Info/Info';
+import Footer from './components/Info/Footer';
 
 import { characters } from './characters.json';
 
@@ -15,7 +16,7 @@ class App extends Component {
       selected: '',
       films: [],
       isLoading: false,
-      info: false,
+      info: true,
     }
   }
 
@@ -101,7 +102,7 @@ class App extends Component {
       <div className='App'>
         <Selector characters={characters} select={this.select} isLoading={this.state.isLoading} toggleInfo={this.toggleInfo}/>
         {this.renderFilms()}
-        Code Challenge for ADP by Isaac Peifer (c) 2017
+        <Footer/>
       </div>
     )
   }

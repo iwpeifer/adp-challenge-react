@@ -7,6 +7,7 @@
   border-radius: 5px;
   width: 50%;
   min-width: 500px;
+  min-height: 300px;
   position: absolute;
   left: 25%;
 }
@@ -20,11 +21,21 @@ h1, h3 {
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
-  min-height: 25vh;
+  min-height: 200px;
 }
 
 .info {
   color: white;
   text-align: left;
   font-style: italic;
+  margin: 0;
+}
+
+.Footer p {
+  font-size: 0.75em;
+  margin-bottom: 0;
+}
+
+.Footer a {
+  color: rgb(95,192,221);
 }
