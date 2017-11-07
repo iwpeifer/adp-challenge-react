@@ -19,6 +19,15 @@ class App extends Component {
     }
   }
 
+  resetState = () => {
+    this.setState({
+      selected: '',
+      films: [],
+      isLoading: false,
+      info: false,
+    })
+  }
+
   select = (character) => {
     // Defines a function that fetches film data from API, sorts them by episode #
     let fetchFilmData = (films) => {
@@ -47,18 +56,15 @@ class App extends Component {
         // If there are no films, return an error
       } else {
         alert("An error has occured; no films have been found.")
-        this.setState({
-          isLoading: false,
-        })
+        this.resetState();
       }
     }
 
-    // Resets this.state.films to an empty array, isLoading to true
+    // Resets this.state, sets isLoading to true, sets selected character
+    this.resetState();
     this.setState({
-      selected: character,
-      films: [],
       isLoading: true,
-      info: false,
+      selected: character,
     })
 
     // Uses character URL and fetchFilmData() to fetch film URLs
@@ -93,7 +99,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Selector characters={characters} select={this.select} selected={this.state.selected} toggleInfo={this.toggleInfo}/>
+        <Selector characters={characters} select={this.select} isLoading={this.state.isLoading} toggleInfo={this.toggleInfo}/>
         {this.renderFilms()}
         Code Challenge for ADP by Isaac Peifer (c) 2017
       </div>

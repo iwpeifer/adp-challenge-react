@@ -8,9 +8,9 @@ export default (props) => {
     return (
       <ButtonToolbar className='toolbar'>
         {props.characters.map((character, i) => {
-          return <Button bsStyle='primary' key={i} onClick={() => props.select(character)}>{character.name}</Button>
+          return <Button disabled={props.isLoading} bsStyle='primary' key={i} onClick={() => props.select(character)}>{character.name}</Button>
         })}
-        <Button bsStyle='info' onClick={() => props.toggleInfo()}>Info</Button>
+        <Button bsStyle='info' disabled={props.isLoading} onClick={() => props.toggleInfo()}>Info</Button>
       </ButtonToolbar>
     )
   }
